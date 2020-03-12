@@ -32,10 +32,10 @@ public class TesteVenda {
 
         cliente.setIdCliente(8);
 
-        venda.setData("01/01/2000");
+        //venda.setData("01/01/2000");
         venda.setValorTotal(500);
-        venda.setValorPago(600);
-        venda.setValorTroco(venda.getValorPago()-venda.getValorTotal());
+        //venda.setValorPago(600);
+        //venda.setValorTroco(venda.getValorPago()-venda.getValorTotal());
         venda.setClienteIdCliente(cliente);
         venda.setFuncionarioIdFuncionario(funcionario);
 

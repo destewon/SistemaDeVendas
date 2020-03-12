@@ -56,8 +56,6 @@ public class PessoaFisica implements Serializable {
     private String dataNascimento;
     @OneToMany(mappedBy = "pessoaFisicaIdPessoaFisica")
     private List<Cliente> clienteList;
-    @OneToMany(mappedBy = "pessoaFisicaIdPessoaFisica")
-    private List<Fornecedor> fornecedorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaFisicaIdPessoaFisica")
     private List<Funcionario> funcionarioList;
 
@@ -123,15 +121,6 @@ public class PessoaFisica implements Serializable {
 
     public void setClienteList(List<Cliente> clienteList) {
         this.clienteList = clienteList;
-    }
-
-    @XmlTransient
-    public List<Fornecedor> getFornecedorList() {
-        return fornecedorList;
-    }
-
-    public void setFornecedorList(List<Fornecedor> fornecedorList) {
-        this.fornecedorList = fornecedorList;
     }
 
     @XmlTransient

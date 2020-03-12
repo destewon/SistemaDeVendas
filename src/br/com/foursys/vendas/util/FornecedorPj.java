@@ -42,7 +42,7 @@ public class FornecedorPj {
         endereco.setIdEndereco(2);
 
         fornecedor.setContato("569245698");
-        fornecedor.setTipoPessoa("j");
+        
         fornecedor.setEnderecoIdEndereco(endereco);
         fornecedor.setContatoIdContato(contato);
         fornecedor.setPessoaJuridicaIdPessoaJuridica(pessoaJuridica);
@@ -54,7 +54,7 @@ public class FornecedorPj {
     public void buscarCodigo() throws Exception {
         FornecedorDAO dao = new FornecedorDAO();
         Fornecedor fornecedor = dao.buscarPorCodigo(3);
-        if (fornecedor.getTipoPessoa().trim().equals("f")) {
+        
             System.out.println("Contato:" + fornecedor.getContato());
             System.out.println("Logradouro:" + fornecedor.getEnderecoIdEndereco().getLogradouro());
 
@@ -76,7 +76,7 @@ public class FornecedorPj {
             System.out.println("Inscrição Estadual:" + fornecedor.getPessoaJuridicaIdPessoaJuridica().getInscricaoEstadual());
             System.out.println("Data de Fundação:" + fornecedor.getPessoaJuridicaIdPessoaJuridica().getDataFundacao());
             System.out.println("");
-        }
+        
         System.exit(0);
     }
 
@@ -85,7 +85,7 @@ public class FornecedorPj {
         ArrayList<Fornecedor> lista = dao.buscarTodos();
 
         for (Fornecedor fornecedor1 : lista) {
-            if (fornecedor1.getTipoPessoa().trim().equals("j")) {
+            
                 System.out.println("Contato:" + fornecedor1.getContato());
                 System.out.println("Logradouro:" + fornecedor1.getEnderecoIdEndereco().getLogradouro());
 
@@ -107,7 +107,7 @@ public class FornecedorPj {
                 System.out.println("Inscrição Estadual:" + fornecedor1.getPessoaJuridicaIdPessoaJuridica().getInscricaoEstadual());
                 System.out.println("Data de Fundação:" + fornecedor1.getPessoaJuridicaIdPessoaJuridica().getDataFundacao());
                 System.out.println("");
-            }
+            
         }
         System.exit(0);
     }

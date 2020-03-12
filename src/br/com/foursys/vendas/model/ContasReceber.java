@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ContasReceber.findAll", query = "SELECT c FROM ContasReceber c"),
     @NamedQuery(name = "ContasReceber.findByIdContasReceber", query = "SELECT c FROM ContasReceber c WHERE c.idContasReceber = :idContasReceber"),
     @NamedQuery(name = "ContasReceber.findByDataVencimento", query = "SELECT c FROM ContasReceber c WHERE c.dataVencimento = :dataVencimento"),
+    @NamedQuery(name = "ContasReceber.findByDataPagamento", query = "SELECT c FROM ContasReceber c WHERE c.dataPagamento = :dataPagamento"),
     @NamedQuery(name = "ContasReceber.findByPagamento", query = "SELECT c FROM ContasReceber c WHERE c.pagamento = :pagamento"),
     @NamedQuery(name = "ContasReceber.findByVencida", query = "SELECT c FROM ContasReceber c WHERE c.vencida = :vencida")})
 public class ContasReceber implements Serializable {
@@ -41,6 +42,8 @@ public class ContasReceber implements Serializable {
     private Integer idContasReceber;
     @Column(name = "data_vencimento")
     private String dataVencimento;
+    @Column(name = "data_pagamento")
+    private String dataPagamento;
     @Column(name = "pagamento")
     private String pagamento;
     @Column(name = "vencida")
@@ -70,6 +73,14 @@ public class ContasReceber implements Serializable {
 
     public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
+    }
+
+    public String getDataPagamento() {
+        return dataPagamento;
+    }
+
+    public void setDataPagamento(String dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 
     public String getPagamento() {

@@ -33,10 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Venda.findAll", query = "SELECT v FROM Venda v"),
     @NamedQuery(name = "Venda.findByIdVenda", query = "SELECT v FROM Venda v WHERE v.idVenda = :idVenda"),
-    @NamedQuery(name = "Venda.findByData", query = "SELECT v FROM Venda v WHERE v.data = :data"),
+    @NamedQuery(name = "Venda.findByDataVenda", query = "SELECT v FROM Venda v WHERE v.dataVenda = :dataVenda"),
     @NamedQuery(name = "Venda.findByValorTotal", query = "SELECT v FROM Venda v WHERE v.valorTotal = :valorTotal"),
-    @NamedQuery(name = "Venda.findByValorPago", query = "SELECT v FROM Venda v WHERE v.valorPago = :valorPago"),
-    @NamedQuery(name = "Venda.findByValorTroco", query = "SELECT v FROM Venda v WHERE v.valorTroco = :valorTroco")})
+    @NamedQuery(name = "Venda.findByFormaPagamento", query = "SELECT v FROM Venda v WHERE v.formaPagamento = :formaPagamento")})
 public class Venda implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,17 +44,14 @@ public class Venda implements Serializable {
     @Column(name = "id_venda")
     private Integer idVenda;
     @Basic(optional = false)
-    @Column(name = "data")
-    private String data;
+    @Column(name = "data_venda")
+    private String dataVenda;
     @Basic(optional = false)
     @Column(name = "valor_total")
     private double valorTotal;
     @Basic(optional = false)
-    @Column(name = "valor_pago")
-    private double valorPago;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "valor_troco")
-    private Double valorTroco;
+    @Column(name = "forma_pagamento")
+    private String formaPagamento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendaIdVenda")
     private List<ContasReceber> contasReceberList;
     @JoinColumn(name = "cliente_id_cliente", referencedColumnName = "id_cliente")
@@ -74,11 +70,11 @@ public class Venda implements Serializable {
         this.idVenda = idVenda;
     }
 
-    public Venda(Integer idVenda, String data, double valorTotal, double valorPago) {
+    public Venda(Integer idVenda, String dataVenda, double valorTotal, String formaPagamento) {
         this.idVenda = idVenda;
-        this.data = data;
+        this.dataVenda = dataVenda;
         this.valorTotal = valorTotal;
-        this.valorPago = valorPago;
+        this.formaPagamento = formaPagamento;
     }
 
     public Integer getIdVenda() {
@@ -89,12 +85,12 @@ public class Venda implements Serializable {
         this.idVenda = idVenda;
     }
 
-    public String getData() {
-        return data;
+    public String getDataVenda() {
+        return dataVenda;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataVenda(String dataVenda) {
+        this.dataVenda = dataVenda;
     }
 
     public double getValorTotal() {
@@ -105,20 +101,12 @@ public class Venda implements Serializable {
         this.valorTotal = valorTotal;
     }
 
-    public double getValorPago() {
-        return valorPago;
+    public String getFormaPagamento() {
+        return formaPagamento;
     }
 
-    public void setValorPago(double valorPago) {
-        this.valorPago = valorPago;
-    }
-
-    public Double getValorTroco() {
-        return valorTroco;
-    }
-
-    public void setValorTroco(Double valorTroco) {
-        this.valorTroco = valorTroco;
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     @XmlTransient

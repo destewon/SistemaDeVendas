@@ -33,8 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Fornecedor.findAll", query = "SELECT f FROM Fornecedor f"),
     @NamedQuery(name = "Fornecedor.findByIdFornecedor", query = "SELECT f FROM Fornecedor f WHERE f.idFornecedor = :idFornecedor"),
-    @NamedQuery(name = "Fornecedor.findByContato", query = "SELECT f FROM Fornecedor f WHERE f.contato = :contato"),
-    @NamedQuery(name = "Fornecedor.findByTipoPessoa", query = "SELECT f FROM Fornecedor f WHERE f.tipoPessoa = :tipoPessoa")})
+    @NamedQuery(name = "Fornecedor.findByContato", query = "SELECT f FROM Fornecedor f WHERE f.contato = :contato")})
 public class Fornecedor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,9 +44,6 @@ public class Fornecedor implements Serializable {
     @Basic(optional = false)
     @Column(name = "contato")
     private String contato;
-    @Basic(optional = false)
-    @Column(name = "tipo_pessoa")
-    private String tipoPessoa;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fornecedorIdFornecedor")
     private List<Produto> produtoList;
     @JoinColumn(name = "contato_id_contato", referencedColumnName = "id_contato")
@@ -56,11 +52,8 @@ public class Fornecedor implements Serializable {
     @JoinColumn(name = "endereco_id_endereco", referencedColumnName = "id_endereco")
     @ManyToOne(optional = false)
     private Endereco enderecoIdEndereco;
-    @JoinColumn(name = "pessoa_fisica_id_pessoa_fisica", referencedColumnName = "id_pessoa_fisica")
-    @ManyToOne
-    private PessoaFisica pessoaFisicaIdPessoaFisica;
     @JoinColumn(name = "pessoa_juridica_id_pessoa_juridica", referencedColumnName = "id_pessoa_juridica")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private PessoaJuridica pessoaJuridicaIdPessoaJuridica;
 
     public Fornecedor() {
@@ -70,10 +63,9 @@ public class Fornecedor implements Serializable {
         this.idFornecedor = idFornecedor;
     }
 
-    public Fornecedor(Integer idFornecedor, String contato, String tipoPessoa) {
+    public Fornecedor(Integer idFornecedor, String contato) {
         this.idFornecedor = idFornecedor;
         this.contato = contato;
-        this.tipoPessoa = tipoPessoa;
     }
 
     public Integer getIdFornecedor() {
@@ -90,14 +82,6 @@ public class Fornecedor implements Serializable {
 
     public void setContato(String contato) {
         this.contato = contato;
-    }
-
-    public String getTipoPessoa() {
-        return tipoPessoa;
-    }
-
-    public void setTipoPessoa(String tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
     }
 
     @XmlTransient
@@ -123,14 +107,6 @@ public class Fornecedor implements Serializable {
 
     public void setEnderecoIdEndereco(Endereco enderecoIdEndereco) {
         this.enderecoIdEndereco = enderecoIdEndereco;
-    }
-
-    public PessoaFisica getPessoaFisicaIdPessoaFisica() {
-        return pessoaFisicaIdPessoaFisica;
-    }
-
-    public void setPessoaFisicaIdPessoaFisica(PessoaFisica pessoaFisicaIdPessoaFisica) {
-        this.pessoaFisicaIdPessoaFisica = pessoaFisicaIdPessoaFisica;
     }
 
     public PessoaJuridica getPessoaJuridicaIdPessoaJuridica() {

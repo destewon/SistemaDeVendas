@@ -6,7 +6,9 @@
 package br.com.foursys.vendas;
 
 import br.com.foursys.vendas.view.ClientePrincipal;
+import br.com.foursys.vendas.view.FornecedorPrincipal;
 import br.com.foursys.vendas.view.FuncionarioPrincipal;
+import br.com.foursys.vendas.view.ProdutoPrincipal;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -37,8 +39,10 @@ public class Main {
         } catch (IllegalAccessException e) {
     // handle exception
         }
-        new FuncionarioPrincipal();
-        //new ClientePrincipal();
+       //new FuncionarioPrincipal();
+       // new ClientePrincipal();
+       //new FornecedorPrincipal();
+       new ProdutoPrincipal();
     }
 
 }

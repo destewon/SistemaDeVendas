@@ -53,7 +53,7 @@ public class Produto implements Serializable {
     @Column(name = "valor_custo")
     private double valorCusto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "produtoIdProduto")
-    private List<ContasPagar> contasPagarList;
+    private List<ItemCompra> itemCompraList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "produtoIdProduto")
     private List<Estoque> estoqueList;
     @JoinColumn(name = "fornecedor_id_fornecedor", referencedColumnName = "id_fornecedor")
@@ -109,12 +109,12 @@ public class Produto implements Serializable {
     }
 
     @XmlTransient
-    public List<ContasPagar> getContasPagarList() {
-        return contasPagarList;
+    public List<ItemCompra> getItemCompraList() {
+        return itemCompraList;
     }
 
-    public void setContasPagarList(List<ContasPagar> contasPagarList) {
-        this.contasPagarList = contasPagarList;
+    public void setItemCompraList(List<ItemCompra> itemCompraList) {
+        this.itemCompraList = itemCompraList;
     }
 
     @XmlTransient

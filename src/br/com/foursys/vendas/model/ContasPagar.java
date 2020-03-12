@@ -31,8 +31,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ContasPagar.findByIdContasPagar", query = "SELECT c FROM ContasPagar c WHERE c.idContasPagar = :idContasPagar"),
     @NamedQuery(name = "ContasPagar.findByDataVencimento", query = "SELECT c FROM ContasPagar c WHERE c.dataVencimento = :dataVencimento"),
     @NamedQuery(name = "ContasPagar.findByDataPagamento", query = "SELECT c FROM ContasPagar c WHERE c.dataPagamento = :dataPagamento"),
-    @NamedQuery(name = "ContasPagar.findByValorCompra", query = "SELECT c FROM ContasPagar c WHERE c.valorCompra = :valorCompra"),
-    @NamedQuery(name = "ContasPagar.findByQuantidadeProduto", query = "SELECT c FROM ContasPagar c WHERE c.quantidadeProduto = :quantidadeProduto"),
     @NamedQuery(name = "ContasPagar.findByPagamento", query = "SELECT c FROM ContasPagar c WHERE c.pagamento = :pagamento"),
     @NamedQuery(name = "ContasPagar.findByVencida", query = "SELECT c FROM ContasPagar c WHERE c.vencida = :vencida")})
 public class ContasPagar implements Serializable {
@@ -47,18 +45,13 @@ public class ContasPagar implements Serializable {
     private String dataVencimento;
     @Column(name = "data_pagamento")
     private String dataPagamento;
-    @Basic(optional = false)
-    @Column(name = "valor_compra")
-    private double valorCompra;
-    @Column(name = "quantidade_produto")
-    private Integer quantidadeProduto;
     @Column(name = "pagamento")
     private String pagamento;
     @Column(name = "vencida")
     private String vencida;
-    @JoinColumn(name = "produto_id_produto", referencedColumnName = "id_produto")
+    @JoinColumn(name = "compra_id_compra", referencedColumnName = "id_compra")
     @ManyToOne(optional = false)
-    private Produto produtoIdProduto;
+    private Compra compraIdCompra;
 
     public ContasPagar() {
     }
@@ -67,10 +60,9 @@ public class ContasPagar implements Serializable {
         this.idContasPagar = idContasPagar;
     }
 
-    public ContasPagar(Integer idContasPagar, String dataVencimento, double valorCompra) {
+    public ContasPagar(Integer idContasPagar, String dataVencimento) {
         this.idContasPagar = idContasPagar;
         this.dataVencimento = dataVencimento;
-        this.valorCompra = valorCompra;
     }
 
     public Integer getIdContasPagar() {
@@ -97,22 +89,6 @@ public class ContasPagar implements Serializable {
         this.dataPagamento = dataPagamento;
     }
 
-    public double getValorCompra() {
-        return valorCompra;
-    }
-
-    public void setValorCompra(double valorCompra) {
-        this.valorCompra = valorCompra;
-    }
-
-    public Integer getQuantidadeProduto() {
-        return quantidadeProduto;
-    }
-
-    public void setQuantidadeProduto(Integer quantidadeProduto) {
-        this.quantidadeProduto = quantidadeProduto;
-    }
-
     public String getPagamento() {
         return pagamento;
     }
@@ -129,12 +105,12 @@ public class ContasPagar implements Serializable {
         this.vencida = vencida;
     }
 
-    public Produto getProdutoIdProduto() {
-        return produtoIdProduto;
+    public Compra getCompraIdCompra() {
+        return compraIdCompra;
     }
 
-    public void setProdutoIdProduto(Produto produtoIdProduto) {
-        this.produtoIdProduto = produtoIdProduto;
+    public void setCompraIdCompra(Compra compraIdCompra) {
+        this.compraIdCompra = compraIdCompra;
     }
 
     @Override

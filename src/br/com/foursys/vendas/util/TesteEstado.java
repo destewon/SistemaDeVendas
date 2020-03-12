@@ -21,6 +21,7 @@ public class TesteEstado {
         EstadoDAO dao = new EstadoDAO();
         Estado estado = new Estado();
 
+        
         estado.setNome("São Paulo");
         estado.setUf("SP");
         dao.salvar(estado);

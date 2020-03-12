@@ -49,7 +49,11 @@ public class Funcionario implements Serializable {
     @Column(name = "login")
     private String login;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "funcionarioIdFuncionario")
+    private List<Compra> compraList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "funcionarioIdFuncionario")
     private List<Venda> vendaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "funcionarioIdFuncionario")
+    private List<LogUsuario> logUsuarioList;
     @JoinColumn(name = "contato_id_contato", referencedColumnName = "id_contato")
     @ManyToOne(optional = false)
     private Contato contatoIdContato;
@@ -98,12 +102,30 @@ public class Funcionario implements Serializable {
     }
 
     @XmlTransient
+    public List<Compra> getCompraList() {
+        return compraList;
+    }
+
+    public void setCompraList(List<Compra> compraList) {
+        this.compraList = compraList;
+    }
+
+    @XmlTransient
     public List<Venda> getVendaList() {
         return vendaList;
     }
 
     public void setVendaList(List<Venda> vendaList) {
         this.vendaList = vendaList;
+    }
+
+    @XmlTransient
+    public List<LogUsuario> getLogUsuarioList() {
+        return logUsuarioList;
+    }
+
+    public void setLogUsuarioList(List<LogUsuario> logUsuarioList) {
+        this.logUsuarioList = logUsuarioList;
     }
 
     public Contato getContatoIdContato() {

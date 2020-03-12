@@ -8,6 +8,7 @@ package br.com.foursys.vendas.model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,7 +48,6 @@ public class PessoaJuridica implements Serializable {
     @Basic(optional = false)
     @Column(name = "cnpj")
     private String cnpj;
-    @Basic(optional = false)
     @Column(name = "inscricao_estadual")
     private String inscricaoEstadual;
     @Basic(optional = false)
@@ -55,7 +55,7 @@ public class PessoaJuridica implements Serializable {
     private String dataFundacao;
     @OneToMany(mappedBy = "pessoaJuridicaIdPessoaJuridica")
     private List<Cliente> clienteList;
-    @OneToMany(mappedBy = "pessoaJuridicaIdPessoaJuridica")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaJuridicaIdPessoaJuridica")
     private List<Fornecedor> fornecedorList;
 
     public PessoaJuridica() {
@@ -65,11 +65,10 @@ public class PessoaJuridica implements Serializable {
         this.idPessoaJuridica = idPessoaJuridica;
     }
 
-    public PessoaJuridica(Integer idPessoaJuridica, String razaoSocial, String cnpj, String inscricaoEstadual, String dataFundacao) {
+    public PessoaJuridica(Integer idPessoaJuridica, String razaoSocial, String cnpj, String dataFundacao) {
         this.idPessoaJuridica = idPessoaJuridica;
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
-        this.inscricaoEstadual = inscricaoEstadual;
         this.dataFundacao = dataFundacao;
     }
 

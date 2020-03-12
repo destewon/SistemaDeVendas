@@ -7,10 +7,14 @@ import br.com.foursys.vendas.model.Funcionario;
 import br.com.foursys.vendas.model.Contato;
 import br.com.foursys.vendas.model.Endereco;
 import br.com.foursys.vendas.model.Estado;
+import br.com.foursys.vendas.util.Mensagem;
 import br.com.foursys.vendas.model.PessoaFisica;
 import br.com.foursys.vendas.model.PessoaJuridica;
 import br.com.foursys.vendas.util.Valida;
 import br.com.foursys.vendas.view.FuncionarioPrincipal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,10 +41,10 @@ public class FuncionarioController {
     public void excluirFuncionario() {
         DefaultTableModel modelo = (DefaultTableModel) this.viewFuncionario.getTabelaFuncionario().getModel();
         if (this.viewFuncionario.getTabelaFuncionario().getSelectedRow() < 0) {
-            JOptionPane.showMessageDialog(null, "É necessário selecionar um funcionario");
+            JOptionPane.showMessageDialog(null, Mensagem.selecaoErro);
         } else {
             funcionario = listaFuncionarios.get(this.viewFuncionario.getTabelaFuncionario().getSelectedRow());
-            int opcao = JOptionPane.showConfirmDialog(null, "Confirma em excluir este registro?", "Atenção",
+            int opcao = JOptionPane.showConfirmDialog(null, Mensagem.confirmaExcluir, "Atenção",
                     JOptionPane.YES_OPTION,
                     JOptionPane.CANCEL_OPTION);
             if (opcao == JOptionPane.YES_OPTION) {
@@ -52,10 +56,10 @@ public class FuncionarioController {
 
                     new PessoaFisicaController().excluirPessoaFisica(funcionario.getPessoaFisicaIdPessoaFisica());
 
-                    JOptionPane.showMessageDialog(null, "Funcionario excluido com sucesso!");
+                    JOptionPane.showMessageDialog(null, Mensagem.excluidoComSucesso);
                     listarFuncionarios();
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Erro ao excluir o funcionario!");
+                    JOptionPane.showMessageDialog(null, Mensagem.erroExclusao);
                     Logger.getLogger(FuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -256,9 +260,9 @@ public class FuncionarioController {
                 FuncionarioDAO dao = new FuncionarioDAO();
                 try {
                     dao.salvar(funcionario);
-                    JOptionPane.showMessageDialog(null, "Funcionario inserido com sucesso!");
+                    JOptionPane.showMessageDialog(null, Mensagem.funcionarioInserido);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Erro ao inserir o funcionario.");
+                    JOptionPane.showMessageDialog(null, Mensagem.erroInserir);
                     Logger.getLogger(FuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 limparCampos();
@@ -296,9 +300,9 @@ public class FuncionarioController {
                 FuncionarioDAO dao = new FuncionarioDAO();
                 try {
                     dao.salvar(funcionario);
-                    JOptionPane.showMessageDialog(null, "Funcionario alterado com sucesso!");
+                    JOptionPane.showMessageDialog(null, Mensagem.funcionarioAlterado);
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Erro ao alterar o funcionario.");
+                    JOptionPane.showMessageDialog(null, Mensagem.erroAlterar);
                     Logger.getLogger(FuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 limparCampos();
@@ -310,84 +314,78 @@ public class FuncionarioController {
 
     public boolean validarSalvar() {
 
-        if (this.viewFuncionario.getJtfCpf().equals("   .   .   -  ")) {
-            JOptionPane.showMessageDialog(null, "Informe o CPF, campo obrigatório.");
+        if (!Valida.validaCpf(this.viewFuncionario.getJtfCpf().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.cpfInvalido);
             return false;
         }
-        if(!Valida.validaCpf(this.viewFuncionario.getJtfCpf().getText())){
-        JOptionPane.showMessageDialog(null, "Informe o CPF, campo obrigatório.");
+
+        if (Valida.validaRg(this.viewFuncionario.getJtfRg().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.rgInvalido);
             return false;
-         }
-        if (this.viewFuncionario.getJtfRg().getText().equals("  .   .   ")) {
-            
         }
-        if(!Valida.validaRg(this.viewFuncionario.getJtfCpf().getText())){
-        JOptionPane.showMessageDialog(null, "Informe o RG, campo obrigatório.");
+
+        if (!Valida.validaData(this.viewFuncionario.getJtfDataNascimento().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.dataInvalida);
             return false;
-         }
+        }
+
+        if (Valida.validaNome(this.viewFuncionario.getJtfNome().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.nomeInvalido);
+            return false;
+        }
+
+        if (!Valida.validaEmail(this.viewFuncionario.getJtfEmail().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.emailInvalido);
+            return false;
+        }
+
+        if (Valida.validaEndereco(this.viewFuncionario.getJtfEndereco().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.enderecoInvalido);
+            return false;
+        }
+
+        if (Valida.validaNumero(this.viewFuncionario.getJtfNumero().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.numeroInvalido);
+            return false;
+        }
+        if (Valida.validaBairro(this.viewFuncionario.getJtfBairro().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.bairroInvalido);
+            return false;
+        }
+
         
 
-        if (this.viewFuncionario.getJtfNome().getText().trim().equals("")) {
-            JOptionPane.showMessageDialog(null, "Informe o NOME, campo obrigatório.");
-            return false;
-        }
-        if (this.viewFuncionario.getJtfDataNascimento().getText().equals("  /  /    ")) {
-            JOptionPane.showMessageDialog(null, "Informe o DATA DE NASCIMENTO, campo obrigatório.");
+        if (Valida.validaCidade(this.viewFuncionario.getJcbCidade().getSelectedIndex())) {
+            JOptionPane.showMessageDialog(null, Mensagem.cidadeInvalida);
             return false;
         }
 
-        if (this.viewFuncionario.getJtfEndereco().getText().trim().equals("")) {
-            JOptionPane.showMessageDialog(null, "Informe o ENDEREÇO, campo obrigatório.");
+        if (Valida.validaCep(this.viewFuncionario.getJtfCep().getText())) {
+            JOptionPane.showMessageDialog(null,Mensagem.cepInvalido );
             return false;
         }
 
-        if (this.viewFuncionario.getJtfNumero().getText().trim().equals("")) {
-            JOptionPane.showMessageDialog(null, "Informe o NUMERO, campo obrigatório.");
+        if (Valida.validaEstado(this.viewFuncionario.getJcbEstado().getSelectedIndex())) {
+            JOptionPane.showMessageDialog(null, Mensagem.estadoInvalido);
             return false;
         }
-        if (this.viewFuncionario.getJtfBairro().getText().trim().equals("")) {
-            JOptionPane.showMessageDialog(null, "Informe o BAIRRO, campo obrigatório.");
-            return false;
-        }
-
-        if (this.viewFuncionario.getJtfComplemento().getText().trim().equals("")) {
-            JOptionPane.showMessageDialog(null, "Informe o COMPLEMENTO, campo obrigatório.");
+        if (Valida.validaLogin(this.viewFuncionario.getJtfLogin().getText())) {
+            JOptionPane.showMessageDialog(null, Mensagem.loginInvalido);
             return false;
         }
 
-        if (this.viewFuncionario.getJcbCidade().getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Informe o CIDADE, campo obrigatório.");
+        if (Valida.validaSenha(new String(this.viewFuncionario.getJtfSenha().getPassword()))) {
+            JOptionPane.showMessageDialog(null, Mensagem.senhaInvalida);
             return false;
         }
 
-        if (this.viewFuncionario.getJtfCep().getText().equals("  .   -   ")) {
-            JOptionPane.showMessageDialog(null, "Informe o CEP, campo obrigatório.");
-            return false;
-        }
-
-        if (this.viewFuncionario.getJcbEstado().getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Informe o UF, campo obrigatório.");
-            return false;
-        }
-        if (this.viewFuncionario.getJtfLogin().getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Informe o LOGIN, campo obrigatório.");
-            return false;
-        }
-
-        if (this.viewFuncionario.getJtfSenha().getPassword().toString().equals("")) {
-            JOptionPane.showMessageDialog(null, "Informe a SENHA, campo obrigatório.");
-            return false;
-        }
-        
-        
-        
         return true;
     }
 
     public void alterarFuncionario() {
         DefaultTableModel modelo = (DefaultTableModel) this.viewFuncionario.getTabelaFuncionario().getModel();
         if (this.viewFuncionario.getTabelaFuncionario().getSelectedRow() < 0) {
-            JOptionPane.showMessageDialog(null, "É necessário selecionar um funcionario");
+            JOptionPane.showMessageDialog(null, Mensagem.selecaoErro);
         } else {
             funcionario = listaFuncionarios.get(this.viewFuncionario.getTabelaFuncionario().getSelectedRow());
 
@@ -433,5 +431,4 @@ public class FuncionarioController {
         cpfValidator.assertValid(null);
     }
 
-    
 }

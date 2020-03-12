@@ -10,21 +10,33 @@
     
     <property name="hbm2ddl.auto">validate</property>
     
-    <mapping class="br.com.foursys.vendas.model.Estoque"/>
+    
+    <mapping class="br.com.foursys.vendas.model.Cidade"/>
+    <mapping class="br.com.foursys.vendas.model.Cliente"/>
+    <mapping class="br.com.foursys.vendas.model.Compra"/>
     <mapping class="br.com.foursys.vendas.model.ContasPagar"/>
+    <mapping class="br.com.foursys.vendas.model.ContasReceber"/>
+    <mapping class="br.com.foursys.vendas.model.Contato"/>
+    <mapping class="br.com.foursys.vendas.model.Endereco"/>
+    <mapping class="br.com.foursys.vendas.model.Estado"/>
+    <mapping class="br.com.foursys.vendas.model.Estoque"/>    
     <mapping class="br.com.foursys.vendas.model.Fornecedor"/>
+    <mapping class="br.com.foursys.vendas.model.LogUsuario"/>
+    
     <mapping class="br.com.foursys.vendas.model.ItemVenda"/>
+    <mapping class="br.com.foursys.vendas.model.ItemCompra"/>
     <mapping class="br.com.foursys.vendas.model.PessoaFisica"/>
     <mapping class="br.com.foursys.vendas.model.Funcionario"/>
     <mapping class="br.com.foursys.vendas.model.PessoaJuridica"/>
-    <mapping class="br.com.foursys.vendas.model.Endereco"/>
+    
     <mapping class="br.com.foursys.vendas.model.Produto"/>
-    <mapping class="br.com.foursys.vendas.model.Cidade"/>
-    <mapping class="br.com.foursys.vendas.model.Estado"/>
-    <mapping class="br.com.foursys.vendas.model.Contato"/>
+    
+    
+    
     <mapping class="br.com.foursys.vendas.model.ContasReceber"/>
     <mapping class="br.com.foursys.vendas.model.Venda"/>
-    <mapping class="br.com.foursys.vendas.model.Cliente"/>
+    
+    
     
   </session-factory>
 </hibernate-configuration>
