@@ -25,6 +25,8 @@ public class ClientePrincipal extends javax.swing.JFrame {
         this.controllerCliente.carregarComboCidade();
         this.controllerCliente.carregarComboEstado();
         this.controllerCliente.bloqueioInicial();
+        
+        setResizable(false);
         setVisible(true);
     }
 
@@ -80,8 +82,9 @@ public class ClientePrincipal extends javax.swing.JFrame {
         jbtSair = new javax.swing.JButton();
         jbtNovo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Cadastro de Cliente");
+        setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
@@ -516,7 +519,7 @@ public class ClientePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtExcluirActionPerformed
 
     private void jbtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSairActionPerformed
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jbtSairActionPerformed
 
     private void jtfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeActionPerformed

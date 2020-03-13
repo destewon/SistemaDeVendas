@@ -290,7 +290,7 @@ public class ClienteController {
                     new PessoaJuridicaController().updatePessoaJuridica(pessoaJuridica);
                 }
                 endereco.setLogradouro(this.viewCliente.getJtfEndereco().getText());
-                endereco.setNumero(Integer.parseInt(this.viewCliente.getJtfNumero().getText()));
+                endereco.setNumero(Integer.parseInt(this.viewCliente.getJtfNumero().getText().trim()));
                 endereco.setBairro(this.viewCliente.getJtfBairro().getText());
                 endereco.setCep(this.viewCliente.getJtfCep().getText());
 
@@ -334,7 +334,7 @@ public class ClienteController {
                     new PessoaJuridicaController().updatePessoaJuridica(cliente.getPessoaJuridicaIdPessoaJuridica());
                 }
                 cliente.getEnderecoIdEndereco().setLogradouro(this.viewCliente.getJtfEndereco().getText());
-                cliente.getEnderecoIdEndereco().setNumero(Integer.parseInt(this.viewCliente.getJtfNumero().getText()));
+                cliente.getEnderecoIdEndereco().setNumero(Integer.parseInt(this.viewCliente.getJtfNumero().getText().trim()));
                 cliente.getEnderecoIdEndereco().setBairro(this.viewCliente.getJtfBairro().getText());
                 cliente.getEnderecoIdEndereco().setCep(this.viewCliente.getJtfCep().getText());
                 cliente.getEnderecoIdEndereco().setComplemento(this.viewCliente.getJtfComplemento().getText());

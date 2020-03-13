@@ -39,6 +39,26 @@ public class FuncionarioDAO extends GenericDAO {
         return listaRetorno;
     }
 
+    @SuppressWarnings("unchecked")
+    public ArrayList<Funcionario> buscarTodos(String login) throws Exception {
+
+        ArrayList<Funcionario> listaRetorno = new ArrayList<Funcionario>();
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        Criteria criteria = sessao.createCriteria(Funcionario.class);
+
+        criteria.add(Restrictions.ilike("login", login));
+
+        criteria.addOrder(Order.asc("idFuncionario"));
+
+        listaRetorno = (ArrayList<Funcionario>) criteria.list();
+
+        //Transaction transacao = sessao.beginTransaction();
+        sessao.close();
+        return listaRetorno;
+    }
+
     public Funcionario buscarPorCodigo(int codigo) throws Exception {
         Session sessao = HibernateUtil.getSessionFactory().openSession();
 

@@ -3,16 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/view/ClientePrincipal.java</file>
-            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/util/Mensagem.java</file>
-            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/util/TesteEstado.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/controller/CidadeController.java</file>
             <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/controller/FuncionarioController.java</file>
             <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/util/Valida.java</file>
-            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/util/FornecedorPj.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/view/ProdutoPrincipal.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/view/MenuPrincipal.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/controller/ProdutoController.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/controller/FornecedorController.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/view/FornecedorPrincipal.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/model/Fornecedor.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/controller/LoginController.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/util/Mensagem.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/dao/CidadeDAO.java</file>
             <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/view/FuncionarioPrincipal.java</file>
-            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/util/TesteContasPagar.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/dao/FuncionarioDAO.java</file>
             <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/Main.java</file>
-            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/util/HibernateUtil.java</file>
+            <file>file:/C:/WorkspaceNetbeans/Sistema%20de%20Vendas/src/br/com/foursys/vendas/controller/ClienteController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -23,6 +23,7 @@ public class FuncionarioPrincipal extends javax.swing.JFrame {
         this.controllerFuncionario.carregarComboCidade();
         this.controllerFuncionario.carregarComboEstado();
         this.controllerFuncionario.bloqueioInicial();
+        setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -80,7 +81,7 @@ public class FuncionarioPrincipal extends javax.swing.JFrame {
         jbtSair = new javax.swing.JButton();
         jbtNovo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Cadastro de Funcionário");
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Funcionario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -502,8 +503,8 @@ public class FuncionarioPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtPesquisarFuncionarioActionPerformed
 
     private void jbtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSairActionPerformed
-        //dispose();
-        System.exit(0);
+        dispose();
+        
     }//GEN-LAST:event_jbtSairActionPerformed
 
     private void jbtExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtExcluirActionPerformed

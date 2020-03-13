@@ -223,7 +223,7 @@ public class Valida {
     }
     
     public static boolean validaString(String string) {
-
+        
         return string.trim().equals("")||string.equals(null);
 
     }

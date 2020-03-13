@@ -25,7 +25,7 @@ public class Mensagem {
     public static String bairroInvalido="Informe o BAIRRO, campo obrigatório.";
     public static String cepInvalido="Informe o CEP, campo obrigatório.";
     public static String estadoInvalido="Informe o UF, campo obrigatório.";
-    public static String loginInvalido="Informe o LOGIN, campo obrigatório.";
+    public static String loginInvalido="LOGIN INVALIDO";
     public static String cidadeInvalida="Informe o CIDADE, campo obrigatório.";
     public static String senhaInvalida="Informe a SENHA, campo obrigatório.";
     public static String tipoPessoaInvalida="Informe o tipo de pessoa, campo obrigatório.";
@@ -43,7 +43,9 @@ public class Mensagem {
     public static String erroInserir="Erro ao inserir o funcionario.";
     public static String erroAlterar="Erro ao alterar o funcionario.";
     public static String valorCusto="VALOR DE CUSTO INVALIDO";
+    
     public static String valorVenda="VALOR DE VENDA INVALIDO";
+    public static String encerra="Encerrar Sistema?";
    
     
 }

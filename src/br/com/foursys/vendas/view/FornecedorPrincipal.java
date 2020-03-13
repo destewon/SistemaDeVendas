@@ -22,6 +22,7 @@ FornecedorController controllerFornecedor = new FornecedorController(FornecedorP
         this.controllerFornecedor.carregarComboCidade();
         this.controllerFornecedor.carregarComboEstado();
         this.controllerFornecedor.bloqueioInicial();
+        setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -205,13 +206,10 @@ FornecedorController controllerFornecedor = new FornecedorController(FornecedorP
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                                                 .addComponent(jtfContato, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(427, 427, 427)
                                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                                        .addGap(427, 427, 427)
-                                                        .addComponent(jLabel7))
-                                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                                        .addGap(81, 81, 81)
-                                                        .addComponent(jLabel10)))
+                                                    .addComponent(jLabel7)
+                                                    .addComponent(jLabel10))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jcbCidade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -268,14 +266,15 @@ FornecedorController controllerFornecedor = new FornecedorController(FornecedorP
                     .addComponent(jLabel7)
                     .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel18)
-                        .addComponent(jtfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
+                        .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -503,8 +502,8 @@ FornecedorController controllerFornecedor = new FornecedorController(FornecedorP
     }//GEN-LAST:event_jbtExcluirActionPerformed
 
     private void jbtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSairActionPerformed
-        //dispose();
-        System.exit(0);
+        dispose();
+        
     }//GEN-LAST:event_jbtSairActionPerformed
 
     private void jtfRazaoSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfRazaoSocialActionPerformed

@@ -18,6 +18,7 @@ public class ProdutoPrincipal extends javax.swing.JFrame {
         this.controllerProduto.carregarComboFornecedor();
         this.controllerProduto.listarProdutos();
         this.controllerProduto.bloqueioInicial();
+        setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -314,8 +315,8 @@ public class ProdutoPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtExcluirActionPerformed
 
     private void jbtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSairActionPerformed
-        //dispose();
-        System.exit(0);
+        dispose();
+        //System.exit(0);
     }//GEN-LAST:event_jbtSairActionPerformed
 
     private void jbtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtCancelarActionPerformed

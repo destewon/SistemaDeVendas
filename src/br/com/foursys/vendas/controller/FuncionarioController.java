@@ -38,6 +38,24 @@ public class FuncionarioController {
         this.viewFuncionario = viewFuncionario;
     }
 
+   public FuncionarioController() {
+        
+    }
+    public List<Funcionario> buscarTodos(String login){
+        FuncionarioDAO dao = new FuncionarioDAO();
+        List <Funcionario> listaFuncionario = null;
+        
+        try {
+            listaFuncionario =dao.buscarTodos(login);
+        } catch (Exception ex) {
+            Logger.getLogger(FuncionarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return listaFuncionario;
+        
+    }
+
     public void excluirFuncionario() {
         DefaultTableModel modelo = (DefaultTableModel) this.viewFuncionario.getTabelaFuncionario().getModel();
         if (this.viewFuncionario.getTabelaFuncionario().getSelectedRow() < 0) {
@@ -239,7 +257,7 @@ public class FuncionarioController {
                 cidade = listaCidades.get(this.viewFuncionario.getJcbCidade().getSelectedIndex() - 1);
 
                 endereco.setLogradouro(this.viewFuncionario.getJtfEndereco().getText());
-                endereco.setNumero(Integer.parseInt(this.viewFuncionario.getJtfNumero().getText()));
+                endereco.setNumero(Integer.parseInt(this.viewFuncionario.getJtfNumero().getText().trim()));
                 endereco.setBairro(this.viewFuncionario.getJtfBairro().getText());
                 endereco.setCep(this.viewFuncionario.getJtfCep().getText());
                 endereco.setComplemento(this.viewFuncionario.getJtfComplemento().getText());
@@ -255,7 +273,7 @@ public class FuncionarioController {
 
                 funcionario.setSenha(new String(this.viewFuncionario.getJtfSenha().getPassword()));
 
-                funcionario.setLogin(this.viewFuncionario.getJtfLogin().getText());
+                funcionario.setLogin(this.viewFuncionario.getJtfLogin().getText().trim());
 
                 FuncionarioDAO dao = new FuncionarioDAO();
                 try {
@@ -281,7 +299,7 @@ public class FuncionarioController {
                 new PessoaFisicaController().updatePessoaFisica(funcionario.getPessoaFisicaIdPessoaFisica());
 
                 funcionario.getEnderecoIdEndereco().setLogradouro(this.viewFuncionario.getJtfEndereco().getText());
-                funcionario.getEnderecoIdEndereco().setNumero(Integer.parseInt(this.viewFuncionario.getJtfNumero().getText()));
+                funcionario.getEnderecoIdEndereco().setNumero(Integer.parseInt(this.viewFuncionario.getJtfNumero().getText().trim()));
                 funcionario.getEnderecoIdEndereco().setBairro(this.viewFuncionario.getJtfBairro().getText());
                 funcionario.getEnderecoIdEndereco().setCep(this.viewFuncionario.getJtfCep().getText());
                 funcionario.getEnderecoIdEndereco().setComplemento(this.viewFuncionario.getJtfComplemento().getText());
@@ -295,7 +313,7 @@ public class FuncionarioController {
                 funcionario.getContatoIdContato().setCelular(this.viewFuncionario.getJtfCelular().getText());
                 funcionario.getContatoIdContato().setEmail(this.viewFuncionario.getJtfEmail().getText());
                 new ContatoController().updateContato(funcionario.getContatoIdContato());
-                funcionario.setLogin(this.viewFuncionario.getJtfLogin().getText());
+                funcionario.setLogin(this.viewFuncionario.getJtfLogin().getText().trim());
                 funcionario.setSenha(new String(this.viewFuncionario.getJtfSenha().getPassword()));
                 FuncionarioDAO dao = new FuncionarioDAO();
                 try {
